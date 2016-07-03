@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    include ./head.jade
+    //meta(http-equiv="refresh", content="0;url=" + config.location)
+    script(type="text/javascript").
+      location.href = '#{config.location}';
+  body
+
+    include ./header.jade
+
+    div#main
+
+      include ./toc.jade
+
+      if sidecode
+        div#sidecode
+
+      div#contents(class={ "with-sidecode": sidecode === true })
+          div.section
+            h1 Page moved
+            p Requested page has been moved to a new location. You will be redirected in a moment.
+            p If nothing happens click on following link.
+            p
+              a(href=config.location)=config.location
+            .clear

@@ -1,0 +1,15 @@
+footer.section
+	if config.footer_links
+		nav#footer-links
+			ul(class=( config.footer_text ? "right" : null ))
+				each item in config.footer_links
+					li: a(href=item.link, target=item.target)
+						if item.icon
+							i(class=[ "mdi", "mdi-" + item.icon, "icon" ])
+						if item.label
+							!=item.label
+
+	if config.footer_text
+		p(class=[ "text", ( config.footer_links ? "left" : null ) ])!=config.footer_text
+
+	.clear

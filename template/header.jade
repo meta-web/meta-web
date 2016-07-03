@@ -1,0 +1,20 @@
+header#header(style=( config.header_image ? "background-image: url('" + config.header_image + "');" : "" ) + ( config.header_image_position ? "background-position: " + config.header_image_position + ";" : "" ))
+  if config.header_github || config.menu
+    button#menu-open: i.mdi.mdi-menu
+
+  div#logo: a(href="{{base}}/")!=config.header_title
+
+  if config.header_github || config.menu
+    #header-nav
+      button#menu-close: i.mdi.mdi-close
+
+      if config.header_github
+        div#get-on-github: a(href=config.header_github, target="_blank")
+          i.mdi.mdi-github-circle
+          span=config.header_github_label || "Get on GitHub"
+
+      if config.menu
+        nav#menu
+          ul
+            each item in config.menu
+              li: a(href=item.link, target=item.target)=item.label

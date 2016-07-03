@@ -1,0 +1,21 @@
+{
+  "name": "metaweb-doc",
+  "version": "1.0.0",
+  "description": "META WEB Documentation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meta-web/metaweb-doc.git"
+  },
+  "author": "Jiri Hybek <jiri@hybek.cz>",
+  "bugs": {
+    "url": "https://github.com/meta-web/metaweb-doc/issues"
+  },
+  "scripts": {
+    "doc": "./node_modules/.bin/meta-doc .",
+    "server": "./node_modules/.bin/meta-doc . -s -w"
+  },
+  "homepage": "https://github.com/meta-web/metaweb-doc/",
+  "dependencies": {
+    "meta-doc": "^1.0.7"
+  }
+}

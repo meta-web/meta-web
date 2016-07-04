@@ -1,26 +1,39 @@
 ## `/overview.meta`
-`application/x.meta.layout+json`
+`application/x.meta+json`
 
 ```json
 {
-	"@label": "Overview",
-	"@icon": "/icons/dashboard.svg",
-	"controls": [
+	"@doctype": "meta/resource",
+	"label": "Overview",
+	"icon": "/icons/dashboard.svg",
+	"image": "/images/header.jpg",
+	"properties": [
 		{
-			"uri": "/images/header.jpg",
-			"context": "head"
+			"@type": "meta/group",
+			"label": "Thermostats",
+			"properties": [
+				{
+					"@type": "meta/embed",
+					"uri": "/tm1.meta",
+					"link": true
+				},
+				{
+					"@type": "meta/embed",
+					"uri": "/tm2.meta",
+					"link": true
+				}
+			]
 		},
 		{
-			"uri": "/tm1.meta",
-			"group": "thermostats"
-		},
-		{
-			"uri": "/tm2.meta",
-			"group": "thermostats"
-		},
-		{
-			"uri": "/lb1.meta",
-			"group": "lights"
+			"@type": "meta/group",
+			"label": "Lights",
+			"properties": [
+				{
+					"@type": "meta/embed",
+					"uri": "/lb1.meta",
+					"link": true
+				}
+			]
 		}
 	]
 }

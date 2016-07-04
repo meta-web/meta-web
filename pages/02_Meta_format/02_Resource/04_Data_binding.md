@@ -48,7 +48,7 @@ Datasource and JavaScript propreties can be external and referenced by URI.
 
 | Property | Type | * | # | Description |
 | -------- | ---- | - | - | ----------- | 
-| @type | String | Yes | No | Type of model property, one of: `meta/data`, `meta/datasource`, `meta/javascript` |
+| @type | String | Yes | No | Type of model property, one of: `meta/data`, [`meta/datasource`](../api/#02_Collection_datasource), `meta/javascript` |
 | uri | String / URI | Yes if external | No | URI of model resource |
 | value | JSON any | Yes if not external | No | Model property value |
 | args | Array of String | Yes if JavaScript type | No | Model properties as input arguments |

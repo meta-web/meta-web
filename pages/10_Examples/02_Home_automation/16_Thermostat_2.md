@@ -1,16 +1,22 @@
 ## `/tm2.meta`
-`application/x.meta.control.number.meter+json`
+`application/x.meta+json`
 
 ```json
 {
-	"@model": "/tm2.json",
-	"@label": "Bedroom temperature",
+	"@doctype": "meta/property",
+	"@type": "meta/properties/meter",
+	"$data": {
+		"@type": "meta/data",
+		"uri": "/tm1.json"
+	},
+	"label": "Bedroom temperature",
 	"min": 0,
 	"max": 30,
 	"units": "Degress",
 	
-	"@actions": [
+	"actions": [
 		{
+			"method": "PUT",
 			"url": "/tm2.json",
 			"id": "set",
 			"label": "Set"
@@ -24,7 +30,7 @@
 
 ```json
 {
-	"value": 23,
-	"state": 22.5
+	"value": 22,
+	"state": 23.0
 }
 ```

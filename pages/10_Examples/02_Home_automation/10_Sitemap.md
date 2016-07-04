@@ -1,13 +1,13 @@
 ## `/sitemap.meta`
-`application/x.meta.sitemap+json`
+`application/x.meta+json`
 
 ```json
 {
-	"@label": "Your home",
-	"resources": [
+	"@doctype": "meta/sitemap",
+	"items": [
 		"url": "/overview.meta",
 		"label": "Overview",
-		"resources": [
+		"items": [
 			{
 				"url": "/tm1.meta",
 				"label": "Living room thermostat"

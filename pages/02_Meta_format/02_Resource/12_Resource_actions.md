@@ -98,5 +98,5 @@ Except `navigate` method all actions should be processed without redirecting cli
 
 ::: warning
 **Response**  
-Response should be compatible with [Response type](../data-types/). Otherwise response content should be displayed as text.
+Response should be compatible with [Response type](../api/#10_Action_response). Otherwise response content should be displayed as text.
 :::

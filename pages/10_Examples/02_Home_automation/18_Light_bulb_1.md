@@ -1,26 +1,50 @@
 ## `/lb1.meta`
-`application/x.meta.control.boolean+json`
+`application/x.meta+json`
 
 ```json
 {
-	"@model": "/lb1.json",
-	"@label": "Living room lights",
+	"@doctype": "meta/property",
+	"@type": "meta/properties/boolean",
+	"$data": {
+		"@type": "meta/data",
+		"uri": "/lb1.json"
+	},
+	"$on": {
+		"@type": "meta/data",
+		"value": true
+	},
+	"$off": {
+		"@type": "meta/data",
+		"value": true
+	},
+	"model": "$data",
+	"label": "Living room lights",
 	"style": "switch",
-	"@actions": [
+	"min": 0,
+	"max": 30,
+	"units": "Degress",
+	
+	"actions": [
 		{
-			"url": "/lb1.json",
+			"method": "PUT",
+			"url": "/tm1.json",
+			"model": "$data",
+			"id": "set",
 			"label": "Set",
-			"id": "set"
 		},
 		{
-			"url": "/lb1.json",
+			"method": "PUT",
+			"url": "/tm1.json",
+			"model": "$on",
 			"label": "Turn on",
-			"model": "data:application/json,%7Bvalue%3Atrue%7D"
+			"aliases": [ "Switch on", "Light on" ]
 		},
 		{
-			"url": "/lb1.json",
+			"method": "PUT",
+			"url": "/tm1.json",
+			"model": "$off",
 			"label": "Turn off",
-			"model": "data:application/json,%7Bvalue%3Afalse%7D"
+			"aliases": [ "Switch off", "Light off" ]
 		}
 	]
 }

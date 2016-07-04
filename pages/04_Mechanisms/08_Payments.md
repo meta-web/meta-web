@@ -1,4 +1,4 @@
-## Authorization
+## Payments
 
 MetaWEB may specify common payment mechanisms.
 

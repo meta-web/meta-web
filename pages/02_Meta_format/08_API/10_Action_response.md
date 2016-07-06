@@ -6,6 +6,7 @@ When client invokes resource's action then response MUST be in JSON format with 
 ## customers.php {.tag .post}
 ```json
 {
+	"@doctype": "meta/response",
 	"message": "Customer has been created.",
 	"navigate": "./38.meta"
 }
@@ -18,8 +19,13 @@ When client invokes resource's action then response MUST be in JSON format with 
 
 | Property | Type | * | Description |
 | -------- | ---- | - | ----------- |
+| @doctype | String | Yes | `meta/response` |
 | message  | String | No | Response message that should by dispayed to user. Recommended |
 | navigate | String / URI | No | If user should be redirected to specified URI |
+
+::: info
+Additional properties can be returned to provide more information.
+:::
 
 ::: clear :::
 
@@ -27,6 +33,7 @@ When client invokes resource's action then response MUST be in JSON format with 
 ## customers.php {.tag .post}
 ```json
 {
+	"@doctype": "meta/response",
 	"message": "Field 'First name' has invalid value.",
 	"code": "FIELD_INVALID",
 	"field": "first_name"
@@ -40,6 +47,7 @@ When client invokes resource's action then response MUST be in JSON format with 
 
 | Property | Type | * | Description |
 | -------- | ---- | - | ----------- |
+| @doctype | String | Yes | `meta/response` |
 | message  | String | Yes | Error message that should by dispayed to user |
 | code  | String | No | Internal error code - usable for debugging |
 
@@ -53,6 +61,7 @@ Additional properties can be returned for more detailed debugging.
 ## customers.php {.tag .post}
 ```json
 {
+	"@doctype": "meta/response",
 	"message": "Cannot create customer: internal error occoured",
 	"code": "ERR_INTERNAL",
 	"debug": "Table 'db.customers' doesn't exist"
@@ -66,6 +75,7 @@ Additional properties can be returned for more detailed debugging.
 
 | Property | Type | * | Description |
 | -------- | ---- | - | ----------- |
+| @doctype | String | Yes | `meta/response` |
 | message  | String | Yes | Error message that should by dispayed to user |
 | code  | String | No | Internal error code - usable for debugging |
 

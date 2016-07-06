@@ -33,9 +33,9 @@ MetaWEB controls reads data to model from various data sources. Nowdays live upd
 
 MetaWEB concepts defines way to provide live data updates of resources using [server sent events](https://html.spec.whatwg.org/multipage/comms.html#server-sent-events).
 
-URL of EventSource can be provided using HTTP header **`X-Meta-EventSource`**.
+URL of EventSource can be provided using HTTP header **`X-Meta-EventSource`** in datasource HTTP response.
 
-Server then should respond with proper EventSource **without specifing event name**.
+Server then should respond on specified URI with proper EventSource **without specifing event name**.
 
 See example of EventSource response
 

@@ -17,7 +17,14 @@
 	"$isHidden": {
 		"@type": "meta/javascript",
 		"value": "return (Math.random() > 0.5 ? true : false)"
-	}
+	},
+	"actions": [
+		{
+			"method": "navigate",
+			"uri": "https://www.google.cz/search?q={{$this}}",
+			"label": "Google it"
+		}
+	]
 }
 ```
 :::
@@ -35,10 +42,12 @@ Each property is defined by common configuration properties which are same for a
 | alises | Array of String | No | Yes | Alternative property labels, eg. different forms of words - helpful for voice control |
 | icon | String / URI | No | No | URI to property icon, all image formats are supported but SVG is recommended |
 | schema | String | No | No | MetaWEB schema identifier from [Schema vocabulary](../schema-vocabulary/) |
-| model | String | No | No | Specifies model scope passed to property control. Document model is default. |
+| model | String | No | No | Specifies model scope passed to property control. New model is created by default |
 | required | Boolean / Model prop. as String | No | No | If property is required |
-| readonly | Boolean / Model prop. as String | No | No | If property is read-only and thus control and it's children must be disabled. |
+| readonly | Boolean / Model prop. as String | No | No | If property is read-only and thus control and it's children must be disabled |
 | hidden | Boolean / Model prop. as String | No | No | If property must be hidden |
+| excerpt | Boolean | No | No | If to show property when document is embedded. Defaults to 'false' |
+| actions | Array of Object | No | No | Actions as specified in [`meta/resource`](../resource/), uses local property model |
 | $* | Object | No | No | Model property |
 
 ::: info

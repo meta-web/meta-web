@@ -65,3 +65,8 @@ When both `uri` and `value` is specified then `value` is used. You should never 
 - Function output cannot be also it's input (eg. recursive functions are not allowed)
 - When any of input model properties has changed then function is re-run and it's output is re-binded
 - Functions has no access to standard DOM or browser objects, just vanilla JS
+
+::: warning
+**`$this` property**  
+Property `$this` is reserved and is used to access current model scope.
+:::

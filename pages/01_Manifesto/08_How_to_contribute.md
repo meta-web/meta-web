@@ -1,4 +1,4 @@
-## How can you contribute?
+## How you can contribute?
 
 In a current phase you can help us by discussing concept details on a [forum](http://flarum.metahub.cloud/). More people know more.
 

@@ -13,3 +13,7 @@ PS: Sorry for not so gramatically correct english, contributions are welcome :)
 :::info
 This manifesto is also [available in czech as my original blog post](http://jiri.hybek.cz/META-Web-1-Manifest/).
 :::
+
+:::info
+You can also [browse old META Web specification](http://old.metahub.cloud/) I was working on. Current work is based on these specs.
+:::

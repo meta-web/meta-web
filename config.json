@@ -34,5 +34,10 @@
             "target": "_blank"
         }
     ],
-    "google_analytics": "UA-61055707-2"
+    "google_analytics": "UA-61055707-2",
+    "base_path": "",
+    "rewrite_base": "",
+    "rewrite": {
+        "^forum/$": "http://flarum.metahub.cloud/"
+    }
 }

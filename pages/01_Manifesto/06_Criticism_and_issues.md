@@ -14,9 +14,9 @@ And we are trying to avoid a need to use complex frameworks. Also native META We
 
 That's true. Many various components have to specified and implements such as charts, map views, workflow editors or conversation component for chats.
 
-But concept counts with very specific needs. META UI will provide capability to use standard web technologies to create apps which can be then integrated into view. But this won't be mandatory. For example embedded browser can omit this features due to performance reasons.
+But concept counts with very specific needs. META UI will provide capability to use standard web technologies to create apps which can be then integrated into view. But this won't be mandatory. For example embedded browser can omit these features due to performance reasons.
 
-### It's really bad that we cannot create nice colorfull designs, how can we do marketing stuff then?
+### It's really bad that we cannot create nice colorful designs, how can we do marketing stuff then?
 
 Yes! META Web is killer of graphic designers and marketing. But it's not so hot, really.
 

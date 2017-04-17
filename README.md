@@ -1,11 +1,12 @@
-# metaweb-doc
+# META Web
 
-See docs at [metahub.cloud](http://metahub.cloud/).
+See at [metahub.cloud](http://metahub.cloud/).
 
-**META WEB**  
 Concept of mechanisms to UNITE the WEB. Future web application protocols and formats that puts meta-data and data into information meaning and united APIs.
 
-## How to compile documentation
+TO-DO: Short excerpt about META Web
+
+## How to compile this documentation
 ```bash
 npm install
 npm run doc

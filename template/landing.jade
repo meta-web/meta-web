@@ -12,7 +12,7 @@ html(lang="en")
       article#page
         if page.excerptHtml && !config.excerpt_hidden
           header.excerpt
-            i(class=[ "mdi", ( page.icon ? "mdi-" + page.icon : "mdi-book-open" ), "icon" ])
+            img.logo(src="{{assets}}/metaweb-logo.svg", width="160")
             div.content!=page.excerptHtml
             .clear
 

@@ -14,7 +14,7 @@ But there may be a problem with design and marketing requirements. I'm explainin
 
 ### Web services
 
-As I mentioned in META API section - web services and applications are communicating together more a more. Many people is saying that we are in API economy era. Also microservices are becoming very popular. META Web can provide effective solution for service integration.
+As I mentioned in META API section - web services and applications are communicating together more a more. Many people are saying that we are in API economy era. Also microservices are becoming very popular. META Web can provide effective solution for service integration.
 
 ### Internet of Things (IoT) and embedded devices
 

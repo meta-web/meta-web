@@ -10,6 +10,10 @@
     "header_github_label": "MetaWEB on GitHub",
     "menu": [
         {
+            "label": "@metaweb_hub",
+            "link": "https://twitter.com/metaweb_hub"
+        },
+        {
             "label": "Contact & Support",
             "link": "{{base}}/meta/"
         }

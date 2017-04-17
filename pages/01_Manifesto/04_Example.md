@@ -3,7 +3,7 @@
 I would like to describe basic idea of using META API and META UI for better concept understanding.
 
 ::: warning
-This is just and example, concept is under active development and is changing rapidly.
+This is just an example, concept is under active development and is changing rapidly.
 :::
 
 Following demo is based on an address book example.
@@ -24,11 +24,11 @@ Our web service has two endpoints which are providing:
 
 But methods described in schema are different than HTTP words. They are describing different resource capabilities:
 
-- Method `GET` means that resource properties can be retrieved (eg. methods cannot be getted)
-- Method `SET` menas that resource properties can be updated (or method can be called)
+- Method `GET` means that resource properties can be retrieved (e.g. methods cannot be getted)
+- Method `SET` means that resource properties can be updated (or method can be called)
 - Method `DELETE` means that resource can be deleted
 - Method `LIVE` means that client can subscribe to changes using server sent events (EventSource) - optional feature
-- Method `LOCK` means that client can lock record so no one else can modify it - optional feaure
+- Method `LOCK` means that client can lock record so no one else can modify it - optional feature
 
 ### /contacts {.tag .options}
 
@@ -289,7 +289,7 @@ First example is META UI view of contacts collection.
 
 We define our data source, list component which is connected to that datasource and some other information.
 
-We can also optionaly specify layout of each record and which fields should be displayed.
+We can also optionally specify layout of each record and which fields should be displayed.
 
 Note `export` attribute which tells client that selected record should be available to another views - see more below.
 
@@ -356,7 +356,7 @@ Content-type: application/xml+metaui
 
 ### /index.meta {.tag .get}
 
-Our index page -  META UI view that combines previous views into friendly interface with contact list on a left side and with a contact detail on other side. We can achive this behaviour by using embedding of another META UI views.
+Our index page -  META UI view that combines previous views into friendly interface with contact list on a left side and with a contact detail on other side. We can achieve this behaviour by using embedding of another META UI views.
 
 Note that we are using exported selection variable from `list.meta` views.
 

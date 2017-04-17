@@ -6,7 +6,7 @@ I see following critical issues during development of web applications.
 
 Various applications and web services are communication between each other using application interfaces - APIs. There are many different formats (JSON, XML) and various communication protocols such as REST or RPC. But when we want to integrate two applications together we must study and comply to their VARIOUS protocols, understand how they work and how to implement them.
 
-It's such a babylonian problem. I'm sure that you were already heard that story about [Tower of Babel](https://en.wikipedia.org/wiki/Tower_of_Babel) where god punished people by diversifying their language. APIs are the same story. We need dictionaries (individual implementations) to be able to communicate between applications.
+It's such a Babylonian problem. I'm sure that you were already heard that story about [Tower of Babel](https://en.wikipedia.org/wiki/Tower_of_Babel) where god punished people by diversifying their language. APIs are the same story. We need dictionaries (individual implementations) to be able to communicate between applications.
 
 Each API has different ways to access data, various ways to call methods, various data structures, data types and so on. Developers must then write code almost for every service they want to integrate.
 

@@ -11,7 +11,7 @@ META Web concept consists of:
 
 ### META API
 
-Goal of the generic META API protocol is to define universal and common way how to describe web services and how to communicate between them thus providing an effective tool of integration and to avoid babylonian problem.
+Goal of the generic META API protocol is to define universal and common way how to describe web services and how to communicate between them thus providing an effective tool of integration and to avoid Babylonian problem.
 
 META API consists of:
 
@@ -33,7 +33,7 @@ META UI defines:
 - **Data source** - where to get data and how to store them
 - **Visual components** - how to present data to a user
 
-It's not anything unusual. But the force comes with integration with META API. When we define connection to META API data source we already have description of data model available. So we know which properties resource has - in case of contact we automatically know that our contact has first name, last, name, how to label this properties, which type are they, how to validate them, how we can filter contacts collection and so on.
+It's not anything unusual. But the force comes with integration with META API. When we define connection to META API data source we already have description of data model available. So we know which properties resource has - in case of contact we automatically know that our contact has first name, last, name, how to label these properties, which type are they, how to validate them, how we can filter contacts collection and so on.
 
 So in META UI we don't need to define fields and columns anymore which allows us to avoid breaking DRY rule. Also when we change a data model on a server then these changes will be automatically reflected on a client side without any reprogramming.
 

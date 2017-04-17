@@ -831,6 +831,12 @@ body.landing #page .excerpt {
 	padding-bottom: 60px;
 }
 
+body.landing #page .excerpt .logo {
+	width: auto;
+	max-width: 150px;
+	margin-bottom: 24px;
+}
+
 body.landing #page .excerpt > i.icon {
 	position: static;
 	left: 0px;

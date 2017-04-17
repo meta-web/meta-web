@@ -4,7 +4,7 @@ I see potential of META Web in many fields. From multiplatform applications, e-c
 
 ### Web and mobile applications
 
-This area does'n need any comment because it is primary field and reason why META Web concept has been created.
+This area doesn't need any comment because it is primary field and reason why META Web concept has been created.
 
 ### Web presentations
 

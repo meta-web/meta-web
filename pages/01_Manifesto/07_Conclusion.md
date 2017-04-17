@@ -6,7 +6,7 @@ This project is being developed as open-source and I would like to invite other 
 
 Personally I think that if it won't be the META Web then another similar technology will be created in a future which will be solving same problems.
 
-This manifesto is really only a small introduction to my concept. I'am discussing concept details on a [forum](http://flarum.metahub.cloud/) and API and UI specifications will be added over time.
+This manifesto is really only a small introduction to my concept. I'm discussing concept details on a [forum](http://flarum.metahub.cloud/) and API and UI specifications will be added over time.
 
 PS: Sorry for not so grammatically correct english, contributions are welcome :)
 

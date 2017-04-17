@@ -10,7 +10,7 @@ This area doesn't need any comment because it is primary field and reason why ME
 
 Nowadays classic websites look more like a web or mobile applications. Even blogs or online shops are form of web application which communicates with a server and interacts with a user.
 
-But there may be a problem with design and marketing requirements. I'am explaining this issue below.
+But there may be a problem with design and marketing requirements. I'm explaining this issue below.
 
 ### Web services
 

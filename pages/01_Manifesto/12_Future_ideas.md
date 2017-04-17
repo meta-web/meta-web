@@ -8,6 +8,6 @@ META Web can also provide:
 
 - Data sharing - META Web would provide a way how to share data between services or clients - you can fill part of a form then send it to you friend who can fill rest and can send it back to you.
 
-- Voice interaction - applications using META Web unified API can be easily controled by a voice, mainly when developer provides enough description in schema, also META dictionary can help clients to understand common actions.
+- Voice interaction - applications using META Web unified API can be easily controlled by a voice, mainly when developer provides enough description in schema, also META dictionary can help clients to understand common actions.
 
-- Artifical intelligence - META Web service schemas are all machine readable, why not to create an intelligent agent which can interact with your services using intelligence.
+- Artificial intelligence - META Web service schemas are all machine readable, why not to create an intelligent agent which can interact with your services using intelligence.

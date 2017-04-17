@@ -24,11 +24,11 @@ Our web service has two endpoints which are providing:
 
 But methods described in schema are different than HTTP words. They are describing different resource capabilities:
 
-- Method `GET` means that resource properties can be retreived (eg. methods cannot be getted)
+- Method `GET` means that resource properties can be retrieved (eg. methods cannot be getted)
 - Method `SET` menas that resource properties can be updated (or method can be called)
 - Method `DELETE` means that resource can be deleted
 - Method `LIVE` means that client can subscribe to changes using server sent events (EventSource) - optional feature
-- Method `LOCK` means that client can lock record so no one else can modifiy it - optional feaure
+- Method `LOCK` means that client can lock record so no one else can modify it - optional feaure
 
 ### /contacts {.tag .options}
 
@@ -56,7 +56,7 @@ Content-type: application/json+x.metaapi
                     "type": "@meta.integer",
                     "label": "Record ID",
                     "private": true,
-                    "..comment..": "Private tells that UI should not display this field by default."
+                    "..comment..": "Private tells UI to not display this field by default."
                 },
                 "first_name": {
                     "type": "@meta.text",
@@ -281,7 +281,7 @@ And so on...
 
 ## User interface - using META UI
 
-META UI is using XML because it provides greate solution for component model.
+META UI is using XML because it provides great solution for component model.
 
 ### /list.meta {.tag .get}
 
@@ -311,7 +311,7 @@ Content-type: application/xml+metaui
 			</column>
 			<column grow>
 				<property name="first_name" label="Jméno" />
-				<property name="last_name" /><!-- label is automaticaly gathered from data source -->
+				<property name="last_name" /><!-- label is automatically gathered from data source -->
 				<link rel="detail" src="/detail.meta?id=#{id}" /> <!-- interpolation passes 'id' property to URL -->
 			</column>
 		</layout-columns>
@@ -325,7 +325,7 @@ This META UI view displays contact detail.
 
 If resource supports 'SET' method then properties should be displayed as form fields with `Save` button.
 
-Properties can be placed automaticaly based on data model or we can specify their placement manually.
+Properties can be placed automatically based on data model or we can specify their placement manually.
 
 ```text
 HTTP response:
@@ -386,7 +386,7 @@ Content-type: application/xml+metaui
 
 Finally we define special META UI document called navigation manifest which describes navigation structure of our application. Client is then capable of displaying our navigation.
 
-Note that this navigation manifest was references in previous views.
+Note that this navigation manifest was referenced in previous views.
 
 ```text
 HTTP response:

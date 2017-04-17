@@ -1,4 +1,4 @@
-I can't remember when it started first. Few years ago when I was started to developing our company information system I was begun to see many issues and redundant work in way how web applications are being developed. And since then I was percieving these issues more and more. About two years ago the idea of META Web was born. I was developing it privately until today when I decided to publish it to broader audience.
+I can't remember when it started first. Few years ago when I was started to developing our company information system I was begun to see many issues and redundant work in way how web applications are being developed. And since then I was perceiving these issues more and more. About two years ago the idea of META Web was born. I was developing it privately until today when I decided to publish it to broader audience.
 
 *Jiří Hýbek, February 2017*
 

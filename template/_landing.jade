@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    include ./head.jade
+
+  body.landing#top
+
+    include ./header.jade
+
+    if page.excerptHtml && !config.excerpt_hidden
+      header#excerpt
+        img.logo(src="{{assets}}/metaweb-logo.svg", width="160")
+        div.content!=page.excerptHtml
+        .clear
+
+    div#main
+
+      article#page
+        - var directoryOpened = false;
+
+        each section, id in sections
+          if section.type == "page"
+            if !section.hidden
+              if !directoryOpened
+                !='<section class="directory"><ul>'
+                - directoryOpened = true
+
+              li
+                a(href="{{base}}#{section.id}", class={ "page-link": true, "with-excerpt": section.excerpt })
+                  i(class=[ "mdi", ( section.icon ? "mdi-" + section.icon : "mdi-book-open" ), "icon" ])
+                  =section.label
+
+          else
+            if directoryOpened
+              !='</ul></section>'
+              - directoryOpened = false
+
+            section.section
+              div.anchor(id=section.anchor)
+              div.content
+                !=section.html
+                .clear
+
+        if directoryOpened
+          !='<div class="clear"></div></section>'
+          - directoryOpened = false
+
+    include ./footer.jade
+    include ./lightbox.jade

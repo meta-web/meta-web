@@ -6,22 +6,30 @@
         "keywords": "web, meta, metadata, metaweb, data, dynamic, applications",
         "author": "Jiri Hybek <jiri.hybek.cz>"
     },
-    "header_github": "https://github.com/meta-web/",
-    "header_github_label": "MetaWEB on GitHub",
-    "menu": [
+    "social": [
         {
-            "label": "@metaweb_hub",
-            "link": "https://twitter.com/metaweb_hub"
+            "label": "Forum",
+            "icon": "forum",
+            "link": "http://flarum.metahub.cloud/",
+            "target": "_blank"
         },
         {
-            "label": "Contact & Support",
-            "link": "{{base}}/meta/"
+            "label": "metaweb_hub",
+            "icon": "twitter",
+            "link": "https://twitter.com/metaweb_hub",
+            "target": "_blank"
+        },
+        {
+            "label": "View on GitHub",
+            "icon": "github-circle",
+            "link": "https://github.com/meta-web/",
+            "target": "_blank"
         }
     ],
     "footer_links": [
         {
             "label": "Contribute",
-            "link": "{{base}}/meta/#02_Contribute"
+            "link": "{{base}}/community/"
         },
         {
             "label": "Report an issue",
@@ -30,7 +38,7 @@
         },
         {
             "label": "Privacy Policy",
-            "link": "{{base}}/meta/#09_Privacy_policy"
+            "link": "{{base}}/privacy-policy/"
         },
         {
             "label": "Header image by Freepik",
@@ -38,10 +46,14 @@
             "target": "_blank"
         }
     ],
-    "google_analytics": "UA-61055707-2",
+    "google_analytics": "UA-61055707-2xx",
     "base_path": "",
     "rewrite_base": "",
     "rewrite": {
         "^forum/$": "http://flarum.metahub.cloud/"
+    },
+    "sitemap": {
+        "base_url": "http://metahub.cloud",
+        "exclude": ["/404/"]
     }
 }

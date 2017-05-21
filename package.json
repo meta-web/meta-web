@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/meta-web/metaweb-doc/",
   "dependencies": {
-    "meta-doc": "^1.0.7"
+    "meta-doc": "^1.0.8"
   }
 }

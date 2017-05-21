@@ -9,48 +9,48 @@ html(lang="en")
 
     div#main
 
-      include ./toc.jade
-
-      if sidecode
-        div#sidecode
-
-      article#page(class={ "with-sidecode": sidecode === true })
-        if page.excerptHtml && !config.excerpt_hidden
-          header.excerpt
+      if page.excerptHtml && !config.excerpt_hidden
+        header#excerpt
+          .wrap
             i(class=[ "mdi", ( page.icon ? "mdi-" + page.icon : "mdi-book-open" ), "icon" ])
             div.content!=page.excerptHtml
             .clear
 
-        - var directoryOpened = false;
+      .wrap
+        include ./toc.jade
 
-        each section, id in sections
-          if section.type == "page"
-            if !section.hidden
-              if !directoryOpened
-                !='<section class="directory">'
-                - directoryOpened = true
+        if sidecode
+          div#sidecode
 
-              div.item
-                a(href="{{base}}#{section.id}", class={ "page-link": true, "with-excerpt": section.excerpt })
-                  i(class=[ "mdi", ( section.icon ? "mdi-" + section.icon : "mdi-book-open" ), "icon" ])
-                  =section.label
+        article#page(class={ "with-sidecode": sidecode === true })
 
-          else
-            if directoryOpened
-              !='<div class="clear"></div></section>'
-              - directoryOpened = false
+          - var directoryOpened = false;
 
-            section.section
-              div.anchor(id=section.anchor)
-              div.content
-                !=section.html
-                .clear
+          each section, id in sections
+            if section.type == "page"
+              if !section.hidden
+                if !directoryOpened
+                  !='<section class="directory"><ul>'
+                  - directoryOpened = true
 
-        if directoryOpened
-          !='<div class="clear"></div></section>'
-          - directoryOpened = false
+                li
+                  a(href="{{base}}#{section.id}", class={ "page-link": true, "with-excerpt": section.excerpt })
+                    i(class=[ "mdi", ( section.icon ? "mdi-" + section.icon : "mdi-book-open" ), "icon" ])
+                    =section.label
 
-        if config.footer_links || config.footer_text
-          include ./footer-section.jade
+            else
+              if directoryOpened
+                !='</ul></section>'
+                - directoryOpened = false
 
-    include ./lightbox.jade
+              section.section
+                div.anchor(id=section.anchor)
+                div.content
+                  !=section.html
+                  .clear
+
+          if directoryOpened
+            !='<div class="clear"></div></section>'
+            - directoryOpened = false
+
+    include ./footer.jade

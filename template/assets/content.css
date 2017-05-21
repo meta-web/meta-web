@@ -10,8 +10,8 @@
  * CONTENT STYLES
  */
 .content {
-	line-height: 1.7em;
-	font-size: 14px;
+	line-height: 1.6em;
+	font-size: 16px;
 	color: #555555;
 }
 
@@ -20,29 +20,33 @@
 .content h3,
 .content h4,
 .content h5 {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.1;
 	color: #444444;
-	margin-bottom: 20px;
-	padding-top: 20px;
+	margin-bottom: 30px;
+	padding-top: 30px;
 }
 
 .content h1 {
 	clear: both;
 }
 
+.content h1:first-child,
+.content h2:first-child {
+	padding-top: 0;
+}
+
 .content h1,
 .content h2 {
-	font-size: 30px;
+	font-size: 36px;
 }
 
 .content h2 {
-	font-weight: bold;
+
 }
 
 .content h3 {
-	font-size: 27px;
+	font-size: 26px;
 }
 
 .content h4 {
@@ -58,6 +62,7 @@
 .content h5 {
 	border-bottom: 1px solid #dddddd;
 	padding-bottom: 10px;
+	font-weight: 400;
 }
 
 .content > h1:first-child,
@@ -75,7 +80,12 @@
 	margin-bottom: 20px;
 }
 
-.content > *:last-child {
+.content p {
+	text-align: justify;
+}
+
+.content > *:last-child,
+.content .last {
 	margin-bottom: 0px;
 }
 
@@ -95,6 +105,14 @@
 
 .content .inline-icon {
 	font-size: 24px;
+}
+
+.content .align-center {
+	text-align: center;
+}
+
+.content .align-right {
+	text-align: right;
 }
 
 /*
@@ -244,10 +262,10 @@
 }
 
 /* LINKS */
-.content a[target="_blank"]:after {
+.content a[target="_blank"]:not(.no-flag):after {
 	display: inline-block;
-	content: "\f455";
-	font-family: "MaterialDesignIcons";
+	content: "\F3CC";
+	font-family: "Material Design Icons";
 	margin-left: 3px;
 	color: #aaaaaa;
 	vertical-align: -1px;
@@ -393,16 +411,19 @@
  */
 .content a.cta {
 	display: inline-block;
-	padding: 10px 14px;
+	padding: 10px 18px;
+	margin-bottom: 10px;
 	line-height: 24px;
-	background: transparent;
-	border-radius: 5px;
-	border: 1px solid #0272b3;
+	background: #2196F3;
+	font-size: 15px;
+	border-radius: 2px;
+	border: 0px none;
 	text-decoration: none;
-	color: #0272b3;
+	color: #ffffff;
 	font-weight: bold;
-	transition: all 0.2s;
-	-webkit-transition: all 0.2s;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
 }
 
 .content a.cta[target="_blank"]:after {
@@ -410,8 +431,8 @@
 }
 
 .content a.cta:hover {
-	background: #0272b3;
-	color: #ffffff;
+	background: #1E88E5;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .content a.cta i.inline-icon {
@@ -422,6 +443,86 @@
 
 .content a.cta + a.cta {
 	margin-left: 10px;
+}
+
+@media (max-width: 459px) {
+
+	.content a.cta + a.cta {
+		margin-left: 0;
+	}
+
+}
+
+/*
+ * Columns
+ */
+.content .columns {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.content .columns > .column.grow {
+	flex-grow: 1;
+}
+
+.content .columns > .column.w50 {
+	width: 50%;
+}
+
+.content .columns > .column.w40 {
+	width: 40%;
+}
+
+.content .columns > .column.w45 {
+	width: 47%;
+}
+
+.content .columns > .column.w30 {
+	width: 30%;
+}
+
+.content .columns > .column.mr {
+	margin-right: 80px;
+}
+
+.content .mar-bot-2 {
+	margin-bottom: 40px;
+}
+
+@media (max-width: 1199px) {
+
+	.content .columns {
+		flex-wrap: wrap;
+	}
+
+	.content .columns > .column {
+		width: auto!important;
+		margin-left: 0!important;
+		margin-right: 0!important;
+		flex-grow: 1;
+	}
+
+	.content .columns > .column:not(:last-child) {
+		margin-bottom: 40px;
+	}
+
+	.content .columns > .column h1,
+	.content .columns > .column h2,
+	.content .columns > .column h3,
+	.content .columns > .column p,
+	.content .columns > .column ul,
+	.content .columns > .column ol {
+		text-align: center;
+	}
+
+	.content .columns > .column iframe {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;
+	}
+
 }
 
 /*
@@ -444,6 +545,7 @@
 .excerpt .content a.cta {
 	border-color: #ffffff;
 	color: #ffffff;
+	margin-bottom: 0;
 }
 
 .excerpt .content a.cta:hover {
@@ -472,4 +574,122 @@ body.landing .excerpt .content h5 {
 
 body.landing .excerpt .content a.cta {
 	margin-top: 30px;
+}
+
+/*
+ * Social buttons
+ */
+.content ul.social-buttons {
+	list-style: none;
+	padding: 35px 0 0 0;
+	margin: 0;
+}
+
+.content ul.social-buttons li {
+	display: inline-block;
+	margin: 0 50px 10px 0;
+}
+
+.content ul.social-buttons li a {
+	display: inline-block;
+	text-decoration: none;
+	line-height: 64px;
+	font-size: 17px;
+	font-weight: 400;
+	color: #546E7A;
+	transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+}
+
+.content ul.social-buttons li a .mdi {
+	display: inline-block;
+	font-size: 64px;
+	vertical-align: top;
+	margin-right: 8px;
+	line-height: 1.0;
+}
+
+.content ul.social-buttons li a:hover {
+	color: #2196F3;
+}
+
+.content ul.social-buttons > li:last-child {
+	margin-right: 0;
+}
+
+.content ul.social-buttons.tiny {
+	margin-bottom: 30px;
+	padding-top: 0;
+}
+
+.content ul.social-buttons.tiny li a {
+	line-height: 48px;
+	font-size: 16px;
+}
+
+.content ul.social-buttons.tiny li a .mdi {
+	font-size: 48px;
+}
+
+/*
+ * Partners
+ */
+.content .partners img {
+	width: auto;
+	max-height: 90px;
+	margin: 0px 15px;
+}
+
+/*
+ * Card
+ */
+.content .card {
+	background: #ffffff;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	padding: 40px;
+	margin-bottom: 40px;
+}
+
+.content .card h3 {
+	border: 0px none;
+	padding-bottom: 0;
+	font-size: 24px;
+	padding-top: 0;
+}
+
+.content .card .role {
+	font-size: 14px;
+	color: #666666;
+	margin-top: -25px;
+}
+
+/*
+ * Keyval
+ */
+.content ul.keyval {
+	list-style: none;
+	padding-left: 0;
+}
+
+.content ul.keyval .key {
+	display: inline-block;
+	width: 100px;
+}
+
+.content ul.keyval .mdi {
+	margin-right: 4px;
+	color: #546E7A;
+}
+
+.content ul.keyval .note {
+	color: #999999;
+	font-size: 14px;
+}
+
+/*
+ * Margins
+ */
+.content .mar-bot-30 {
+	margin-bottom: 30px;
 }

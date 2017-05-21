@@ -26,7 +26,8 @@ Math.easeInOutCubic = function (t, b, c, d) {
 
 var scrollToElement = function(element, duration, offset, callback) {
     var start = document.body.scrollTop || document.documentElement.scrollTop,
-        change = Math.max(0, element.offsetTop + offset) - start,
+    	rect = element.getBoundingClientRect(),
+        change = rect.top - offset,
         currentTime = 0,
         increment = 20;
 				
@@ -127,7 +128,7 @@ var scrollLink = function(){
 				
 				if(target){
 
-					scrollToElement(target.parentElement, 1000, 0, function(){
+					scrollToElement(target.parentElement, 1000, 40, function(){
 						currentTop = document.body.scrollTop || document.documentElement.scrollTop;
 						location.href = "#" + targetAnchor;
 						document.body.scrollTop = currentTop;
@@ -159,7 +160,8 @@ var scrollLink = function(){
 
 var headerNav = function(){
 
-	var navEl    = document.getElementById("header-nav");
+	var headerEl = document.getElementById("header");
+	var navEl    = document.getElementById("nav");
 	var btnOpen  = document.getElementById("menu-open");
 	var btnClose = document.getElementById("menu-close");
 
@@ -171,27 +173,86 @@ var headerNav = function(){
 		navEl.classList.remove("opened");
 	});
 
+	var handleScroll = function(){
+
+		var threshold = 1;
+		var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+		if(scroll >= threshold && !headerEl.classList.contains("scrolled"))
+			headerEl.classList.add("scrolled");
+		else if(scroll < threshold && headerEl.classList.contains("scrolled"))
+			headerEl.classList.remove("scrolled");
+
+	};
+
+	document.addEventListener("scroll", handleScroll);
+	window.addEventListener("resize", handleScroll);
+	handleScroll();
+
 };
 
 var tocNav = function(){
 
+	var headerEl = document.getElementById('header');
+	var wrapEl = document.body.querySelector('#main > .wrap');
 	var navEl = document.getElementById("toc");
-	var btnEl = document.getElementById("toc-toggle");
+	var openBtnEl = document.getElementById("toc-open");
+	var closeBtnEl = document.getElementById("toc-close");
+	var fixed = false;
+	var defaultTop = 38;
 
-	navEl.addEventListener("click", function(ev){
-		ev.stopPropagation();
+	openBtnEl.addEventListener("click", function(ev){
+		navEl.classList.add('opened');
 	});
 
-	btnEl.addEventListener("click", function(){
-		navEl.classList.toggle("opened");
+	closeBtnEl.addEventListener("click", function(){
+		navEl.classList.remove('opened');
 	});
 
-	document.body.addEventListener("click", function(){
+	var handleScroll = function(){
 
-		if(navEl.classList.contains("opened"))
-			navEl.classList.remove("opened");
+		//var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+		var rect = wrapEl.getBoundingClientRect();
+		var offset = rect.top - header.offsetHeight;
 
-	});
+		if(offset <= 0 && window.innerWidth >= 854){
+
+			if(!fixed){
+
+				navEl.style.position = 'fixed';
+				navEl.style.top = header.offsetHeight + defaultTop + 'px';
+
+				fixed = true;
+
+			}
+
+			var diff = rect.top + rect.height;
+			var viewHeight = window.innerHeight;
+			var heightOffset = diff - viewHeight;
+			var navHeight = viewHeight - header.offsetHeight - defaultTop + (Math.min(-defaultTop, heightOffset)) + 'px';
+
+			if(navEl.style.maxHeight != navHeight)
+				navEl.style.maxHeight = navHeight;
+
+		} else {
+
+			if(fixed){
+
+				navEl.style.position = '';
+				navEl.style.top = '';
+				navEl.style.height = '';
+
+				fixed = false;
+
+			}
+
+		}
+
+	};
+
+	document.addEventListener("scroll", handleScroll);
+	window.addEventListener("resize", handleScroll);
+	handleScroll();
 
 };
 
@@ -307,6 +368,24 @@ var lightbox = function(){
 
 };
 
+var rewriteEmails = function() {
+    
+    var rewriteLink = function (linkEl) {
+        
+        var address = linkEl.innerText.replace(/ (\(at\)|&#64;) /g, '@');
+        var label = address.replace(/@/g, '&#64;');
+        
+        linkEl.innerHTML = linkEl.innerHTML.replace(/[\w\.-_]+ (\(at\)|&#64;) [\w\.-_]+(\.[\w\.-_]+)?/, label);
+        linkEl.setAttribute('href', 'mailto:' + address.trim());
+
+    };
+    
+    var links = document.body.querySelectorAll('a.email');
+    
+    for (var i = 0; i < links.length; i++)
+        rewriteLink(links.item(i));
+};
+
 window.addEventListener("load", function(){
 
 	//headerShadow();
@@ -315,5 +394,6 @@ window.addEventListener("load", function(){
 	headerNav();
 	tocNav();
 	lightbox();
+	rewriteEmails();
 
 });

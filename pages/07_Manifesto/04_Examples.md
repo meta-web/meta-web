@@ -1,38 +1,39 @@
-## Example of META API and META UI
+## Examples of META API and META UI
 
-I would like to describe basic idea of using META API and META UI for better concept understanding.
+I would like to describe the basic idea of using the META API and META UI for a better understanding of the concept.
 
 ::: warning
-This is just an example, concept is under active development and is changing rapidly.
+This is just an example, the concept is under active development and is changing rapidly.
 :::
 
-Following demo is based on an address book example.
+The following demo is based on the address book example.
 
 ## Web service - using META API
 
-Our web service has two endpoints which are providing:
+Our web service has two endpoints which provide:
 
 1. Collection of contacts
-2. Individual contact
+2. Individual contact record
 
 **META API is based on OOP principle.** So every endpoint is an object with properties and methods.
 
 - Calling `GET` method will return object properties with values.
-- Calling `PUT` method will set object property values or will call method with arguments
+- Calling `POST` method will invoke object method
+- Calling `PUT` method will set object property values
 - Calling `DELETE` method will delete resource if supported
 - Calling `OPTIONS` method will return resource schema (META API description)
 
-But methods described in schema are different than HTTP words. They are describing different resource capabilities:
+But the methods described in the schema are different from HTTP words. They describe different resource capabilities:
 
-- Method `GET` means that resource properties can be retrieved (e.g. methods cannot be getted)
-- Method `SET` means that resource properties can be updated (or method can be called)
+- Method `GET` means that resource properties can be retrieved
+- Method `SET` means that resource properties can be updated (or method can be invoked)
 - Method `DELETE` means that resource can be deleted
 - Method `LIVE` means that client can subscribe to changes using server sent events (EventSource) - optional feature
 - Method `LOCK` means that client can lock record so no one else can modify it - optional feature
 
 ### /contacts {.tag .options}
 
-Calling `OPTIONS` HTTP method on `/contacts` endpoint will return resource schema which describes resource model and capabilities.
+Calling an `OPTIONS` HTTP method on a `/contacts` endpoint will return a resource schema which describes the resource model and resource capabilities.
 
 ```text
 HTTP response:
@@ -56,7 +57,7 @@ Content-type: application/json+x.metaapi
                     "type": "@meta.integer",
                     "label": "Record ID",
                     "private": true,
-                    "..comment..": "Private tells UI to not display this field by default."
+                    "..comment..": "Private tells UI not to display this field by default."
                 },
                 "first_name": {
                     "type": "@meta.text",
@@ -74,7 +75,7 @@ Content-type: application/json+x.metaapi
             "label": "Total count",
             "readonly": true
         },
-        "..comment..": "These properties can be accessed within same resource as this schema using GET, PUT or PATCH methods. In this case of collection only GET method is supported."
+        "..comment..": "These properties can be accessed within the same resource as this schema using GET, PUT or PATCH methods. In this case of collection only GET method is supported."
     },
     "query": {
         "first_name": {
@@ -104,9 +105,9 @@ Content-type: application/json+x.metaapi
 
 ### /contacts?offset=10&limit=2 {.tag .get}
 
-Calling `GET` HTTP method on `/contacts` endpoint will return list of contacts.
+Calling a `GET` HTTP method on the `/contacts` endpoint will return a list of contacts.
 
-Because this resource implements `collection` interface we know that we can also filter result and use pagination.
+Because the resource implements a `collection` interface we know that we can also filter a result and use a pagination.
 
 ```text
 HTTP response:
@@ -129,7 +130,7 @@ Content-type: application/json+x.metaapi
 
 ### /contacts$create {.tag .options}
 
-Calling `OPTIONS` HTTP method on `/contacts$create` endpoint will return schema of `create` method of `/contacts` resource.
+Calling an `OPTIONS` HTTP method on a `/contacts$create` endpoint will return a schema of `create` method of the `/contacts` resource.
 
 ```text
 HTTP response:
@@ -155,14 +156,14 @@ Content-type: application/json+x.metaapi
             "required": true,
             "hint": "Enter a valid e-mail address."
         },
-        "..comment..": "These properties are method arguments. Method endpoint acts as separated data model."
+        "..comment..": "These properties are method arguments. A method endpoint acts as a separated data model."
     }
 }
 ```
 
 ### /contacts$create {.tag .put}
 
-Calling `PUT` HTTP method on `/contacts$create` endpoint will create a new contact record.
+Calling a `PUT` HTTP method on the `/contacts$create` endpoint will create a new contact record.
 
 ```text
 HTTP request body:
@@ -195,7 +196,7 @@ Content-type: application/json+x.metaapi
 
 ### /contacts/42 {.tag .options}
 
-Calling `OPTIONS` HTTP method on `/contacts/42` endpoint will return record schema. It is important to be able to retrieve schema for every resource because we can have free data structure for records in many cases.
+Calling an `OPTIONS` HTTP method on a `/contacts/42` endpoint will return a record schema. It is important to us to be able to retrieve a schema for every resource because we can have a free data structure for records in many cases.
 
 ```text
 HTTP response:
@@ -226,7 +227,7 @@ Content-type: application/json+x.metaapi
 
 ### /contacts/42 {.tag .get}
 
-Calling `GET` HTTP method on `/contacts/42` endpoint will return record data.
+Calling a `GET` HTTP method on the `/contacts/42` endpoint will return a record data.
 
 ```text
 HTTP response:
@@ -246,7 +247,7 @@ Content-type: application/json+x.metaapi
 
 ### /contacts/42 {.tag .put}
 
-Calling `PUT` HTTP method on `/contacts/42` endpoint will update our contact.
+Calling a `PUT` HTTP method on the `/contacts/42` endpoint will update our contact.
 
 ```text
 HTTP request body:
@@ -281,15 +282,15 @@ And so on...
 
 ## User interface - using META UI
 
-META UI is using XML because it provides great solution for component model.
+The META UI use XML because it provides great solution for a component model.
 
 ### /list.meta {.tag .get}
 
-First example is META UI view of contacts collection.
+The first example is META UI view of the contacts collection.
 
-We define our data source, list component which is connected to that datasource and some other information.
+We define our data source, a list component which is connected to that datasource and some other information.
 
-We can also optionally specify layout of each record and which fields should be displayed.
+We can also optionally specify a layout for each record and which fields should be displayed.
 
 Note `export` attribute which tells client that selected record should be available to another views - see more below.
 
@@ -311,7 +312,7 @@ Content-type: application/xml+metaui
 			</column>
 			<column grow>
 				<property name="first_name" label="Jméno" />
-				<property name="last_name" /><!-- label is automatically gathered from data source -->
+				<property name="last_name" /><!-- label is automatically gathered from the data source -->
 				<link rel="detail" src="/detail.meta?id=#{id}" /> <!-- interpolation passes 'id' property to URL -->
 			</column>
 		</layout-columns>
@@ -323,9 +324,9 @@ Content-type: application/xml+metaui
 
 This META UI view displays contact detail.
 
-If resource supports 'SET' method then properties should be displayed as form fields with `Save` button.
+If the resource supports a 'SET' method then properties should be displayed as form fields with a `Save` button.
 
-Properties can be placed automatically based on data model or we can specify their placement manually.
+Properties can be placed automatically based on the data model or we can specify their placement manually.
 
 ```text
 HTTP response:
@@ -340,7 +341,7 @@ Content-type: application/xml+metaui
 	<!-- data source url accepts query argument 'id' -->
 	<datasource id="record" src="/contacts/${id}" />
 	
-	<!-- all properties are rendered automaticaly based on a data source -->
+	<!-- all properties are rendered automaticaly based on the data source -->
 	<properties datasource="@record" />
 
 	<!-- or we can place properties manually -->
@@ -356,9 +357,9 @@ Content-type: application/xml+metaui
 
 ### /index.meta {.tag .get}
 
-Our index page -  META UI view that combines previous views into friendly interface with contact list on a left side and with a contact detail on other side. We can achieve this behaviour by using embedding of another META UI views.
+Our index page -  a META UI view that combines the previous views into a friendly interface with the contact list on a left side and with the contact detail on the other side. We can achieve this behaviour by using an embedding of another META UI views.
 
-Note that we are using exported selection variable from `list.meta` views.
+Note that we are using exported selection variable from the `list.meta` view.
 
 ```text
 HTTP response:
@@ -384,9 +385,9 @@ Content-type: application/xml+metaui
 
 ### /index.meta {.tag .get}
 
-Finally we define special META UI document called navigation manifest which describes navigation structure of our application. Client is then capable of displaying our navigation.
+Finally we define a special META UI document called `navigation manifest` which describes a navigation structure of our application. Client is then capable of displaying that navigation.
 
-Note that this navigation manifest was referenced in previous views.
+Note that this navigation manifest was referenced in the previous views.
 
 ```text
 HTTP response:
@@ -407,8 +408,8 @@ Content-type: application/xml+metaui
 
 ### How to display META UI?
 
-To display META UI views we would need special web browser or client application.
+To display META UI views we would need a special web browser or a client application.
 
-In the future if concept will be popular then I suppose that community can create production browser. Even better solution would be if current web browsers will be able to implement META Web.
+In the future if the concept will be popular then I suppose that community can create a production browser. Even better solution would be if current web browsers will be able to implement the META Web.
 
-In a meantime we would like to develop META Web browser using current web technologies.
+In a meantime we would like to develop the META Web browser using current web technologies.

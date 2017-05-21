@@ -1,20 +1,40 @@
-header#header(style=( config.header_image ? "background-image: url('" + config.header_image + "');" : "" ) + ( config.header_image_position ? "background-position: " + config.header_image_position + ";" : "" ))
-  if config.header_github || config.menu
-    button#menu-open: i.mdi.mdi-menu
+header#header
+  button#menu-open(title="Open menu"): i.mdi.mdi-menu
 
-  div#logo: a(href="{{base}}/")!=config.header_title
+  div.site-logo.primary: a(href="{{base}}/")
+    img(src="{{assets}}/metaweb-logo.svg", height="30")
+    span!=config.header_title
 
-  if config.header_github || config.menu
-    #header-nav
-      button#menu-close: i.mdi.mdi-close
+  nav#nav
+    button#menu-close(title="Close menu"): i.mdi.mdi-close
 
-      if config.header_github
-        div#get-on-github: a(href=config.header_github, target="_blank")
-          i.mdi.mdi-github-circle
-          span=config.header_github_label || "Get on GitHub"
+    div.site-logo: a(href="{{base}}/")
+      img(src="{{assets}}/metaweb-logo-blue.svg", height="30")
+      span!=config.header_title
 
-      if config.menu
-        nav#menu
-          ul
-            each item in config.menu
-              li: a(href=item.link, target=item.target)=item.label
+    ul.primary
+      li.page: a(href="{{base}}/")
+        i.no-icon
+        span Home
+      each item in nav.sections
+        if !item.hidden && item.type == "page"
+          li.page(class={ "current": page.id.substr(0, item.id.length) === item.id })
+            a(href="{{base}}#{item.id}")
+              if(item.icon)
+                i(class="mdi mdi-" + item.icon)
+              else
+                i.no-icon
+              span=item.label
+
+    ul.secondary
+      if config.menu || config.social
+        if config.menu
+          each item in config.menu
+            li: a(href=item.link, target=item.target)=item.label
+
+        if config.social
+          each item in config.social
+            li.social: a(href=item.link, target=item.target)
+              if item.icon
+                i(class="mdi mdi-" + item.icon)
+                span=item.label

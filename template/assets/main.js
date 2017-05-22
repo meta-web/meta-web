@@ -380,7 +380,7 @@ var rewriteEmails = function() {
 
     };
     
-    var links = document.body.querySelectorAll('a.email');
+    var links = document.body.querySelectorAll('a.email,a[href="#mail-link"]');
     
     for (var i = 0; i < links.length; i++)
         rewriteLink(links.item(i));

@@ -653,6 +653,7 @@ nav#toc .wrap > ul li.page.current-parent > a > i.icon {
 #footer .signature {
 	line-height: 32px;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 #footer .signature {
@@ -660,12 +661,9 @@ nav#toc .wrap > ul li.page.current-parent > a > i.icon {
 }
 
 #footer nav ul {
+	display: block;
 	list-style: none;
 	padding: 0px;
-}
-
-#footer nav ul.right {
-	float: right;
 }
 
 #footer nav ul li {

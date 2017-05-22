@@ -46,6 +46,7 @@
             "target": "_blank"
         }
     ],
+    "footer_text": "Contents of this website is licensed under Creative Commons license CC-BY.",
     "google_analytics": "UA-61055707-2xx",
     "base_path": "",
     "rewrite_base": "",

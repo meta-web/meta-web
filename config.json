@@ -1,10 +1,11 @@
 {
-    "title": "META WEB - UNITE the WEB",
+    "title": "META Web - Unite the Web",
     "header_title": "<strong>Meta</strong> Web",
+    "description": "An open-source unified API and UI specifications to get everything connected, for web and mobile applications, IoT and AI.",
+    "keywords": "web, meta, metadata, metaweb, data, dynamic, applications",
     "meta": {
-        "description": "Concept of future semantic web protocols.",
-        "keywords": "web, meta, metadata, metaweb, data, dynamic, applications",
-        "author": "Jiri Hybek <jiri.hybek.cz>"
+        "author": "Jiri Hybek <jiri.hybek.cz>",
+        "robots": "all,follow"
     },
     "social": [
         {
@@ -32,7 +33,7 @@
             "link": "{{base}}/community/"
         },
         {
-            "label": "Report an issue",
+            "label": "Report issue",
             "link": "https://github.com/meta-web/metaweb-doc/issues",
             "target": "_blank"
         },
@@ -47,7 +48,7 @@
         }
     ],
     "footer_text": "Contents of this website is licensed under Creative Commons license CC-BY.",
-    "google_analytics": "UA-61055707-2xx",
+    "google_analytics": "UA-61055707-2",
     "base_path": "",
     "rewrite_base": "",
     "rewrite": {
@@ -55,6 +56,15 @@
     },
     "sitemap": {
         "base_url": "http://metahub.cloud",
-        "exclude": ["/404/"]
+        "exclude": [
+            "/404/",
+            "/concept-dev/",
+            "/concept-dev/meta-api/",
+            "/concept-dev/meta-api/examples/",
+            "/concept-dev/meta-ui/",
+            "/concept-dev/meta-ui/examples/",
+            "/concept-dev/mechanisms/",
+            "/concept-dev/use-cases/"
+        ]
     }
 }

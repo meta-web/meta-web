@@ -1,4 +1,4 @@
-if page.parent === null
+if page.parent === null || config.title
 	title #{(config.title ? config.title : "META Doc")}
 else
 	- var titleList = [];

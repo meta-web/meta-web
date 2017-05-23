@@ -1,4 +1,5 @@
 {
-	"icon": "book",
-	"description": "Introduction to the concept of META Web."
+	"title": "Manifesto - META Web",
+	"description": "Introduction to a concept of the META Web unified API and UI to get everything connected.",
+	"icon": "book"
 }

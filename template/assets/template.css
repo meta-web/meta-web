@@ -303,7 +303,7 @@ nav#nav #menu-close:hover {
 nav#toc {
 	position: absolute;
 	top: 38px;
-	width: 240px;
+	width: 260px;
 	z-index: 50;
 	font-size: 15px;
 	overflow-y: auto;
@@ -484,7 +484,7 @@ nav#toc .wrap > ul li.page.current-parent > a > i.icon {
  */
 #page {
 	position: relative;
-	padding-left: 300px;
+	padding-left: 320px;
 	z-index: 10;
 	min-height: 50vh;
 }

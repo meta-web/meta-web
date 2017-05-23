@@ -1,1 +1,0 @@
-You can try to visit our [homepage]($base$/).

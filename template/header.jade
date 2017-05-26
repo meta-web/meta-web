@@ -19,7 +19,7 @@ header#header
       each item in nav.sections
         if !item.hidden && item.type == "page"
           li.page(class={ "current": page.id.substr(0, item.id.length) === item.id })
-            a(href="{{base}}#{item.id}")
+            a(href="{{base}}#{item.id}", title=item.label)
               if(item.icon)
                 i(class="mdi mdi-" + item.icon)
               else
@@ -30,11 +30,13 @@ header#header
       if config.menu || config.social
         if config.menu
           each item in config.menu
-            li: a(href=item.link, target=item.target)=item.label
+            li: a(href=item.link, target=item.target, title=item.label)=item.label
 
         if config.social
           each item in config.social
-            li.social: a(href=item.link, target=item.target)
+            li.social: a(href=item.link, target=item.target, title=item.label)
               if item.icon
                 i(class="mdi mdi-" + item.icon)
                 span=item.label
+
+script(type="text/javascript") { initPage(); }

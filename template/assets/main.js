@@ -196,6 +196,9 @@ var tocNav = function(){
 	var headerEl = document.getElementById('header');
 	var wrapEl = document.body.querySelector('#main > .wrap');
 	var navEl = document.getElementById("toc");
+
+	if(!navEl) return;
+
 	var openBtnEl = document.getElementById("toc-open");
 	var closeBtnEl = document.getElementById("toc-close");
 	var fixed = false;
@@ -386,13 +389,18 @@ var rewriteEmails = function() {
         rewriteLink(links.item(i));
 };
 
-window.addEventListener("load", function(){
+var initPage = function(){
 
 	//headerShadow();
 	scrollNav();
 	scrollLink();
 	headerNav();
 	tocNav();
+
+};
+
+window.addEventListener("load", function(){
+
 	lightbox();
 	rewriteEmails();
 

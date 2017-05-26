@@ -15,6 +15,12 @@
             "target": "_blank"
         },
         {
+            "label": "Blog",
+            "icon": "medium",
+            "link": "https://medium.com/meta-web",
+            "target": "_blank"
+        },
+        {
             "label": "metaweb_hub",
             "icon": "twitter",
             "link": "https://twitter.com/metaweb_hub",
